@@ -38,6 +38,10 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'             
 }                                                                                  
 export PS1="\[$(tput setaf 154)\]\u \[$(tput setaf 33)\]\W\[$(tput setaf 161)\]\$(parse_git_branch) \[$(tput sgr0)\]$ "
+# zsh
+# setopt PROMPT_SUBST
+# export PROMPT='%F{154}%n %F{33}%~%F{161}$(parse_git_branch) %F{white}%# '  # Just home dir
+# export PROMPT='%F{154}%n%F{33}%/%F{161}$(parse_git_branch) %F{white}%# '  # Full path
                                                                                    
 # GIT BASH COMPLETION                                                              
 if [ -f ~/.git-completion.bash ]; then
